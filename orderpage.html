@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking Form</title>
+    <!-- Add your stylesheet links here -->
+    <style>
+        /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .booking-form, .customer-support {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    h1, h2 {
+        color: #333333;
+    }
+
+    /* Form Styles */
+    form {
+        display: grid;
+        grid-gap: 20px;
+    }
+
+    fieldset {
+        border: none;
+        padding: 0;
+    }
+
+    legend {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+    }
+
+    .submit-btn {
+        background-color: #0056b3;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    .submit-btn:hover {
+        background-color: #003d82;
+    }
+
+    /* Customer Support Styles */
+    .customer-support {
+        text-align: center;
+    }
+
+    .customer-support a {
+        color: #0056b3;
+        text-decoration: none;
+    }
+
+    .customer-support a:hover {
+        text-decoration: underline;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="booking-form">
+        <h1>Flight Booking</h1>
+        <form id="bookingForm" action="submit-booking.php" method="post" onsubmit="return validateForm()">
+            <!-- Flight Details Section -->
+            <fieldset>
+                <legend>Flight Details</legend>
+                <label for="departure-city">Departure City:</label>
+                <input type="text" id="departure-city" name="departure_city" required>
+
+                <label for="arrival-city">Arrival City:</label>
+                <input type="text" id="arrival-city" name="arrival_city" required>
+
+                <label for="departure-date">Departure Date:</label>
+                <input type="date" id="departure-date" name="departure_date" required>
+
+                <label for="return-date">Return Date:</label>
+                <input type="date" id="return-date" name="return_date">
+            </fieldset>
+
+            <!-- Passenger Information Section -->
+            <fieldset>
+                <legend>Passenger Information</legend>
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="full_name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </fieldset>
+
+            <!-- Seat Selection Section -->
+            <fieldset>
+                <legend>Seat Selection</legend>
+                <p>Please select your seat:</p>
+                <div class="seat-map">
+                    <!-- Example seat map (you would generate this based on actual flight data) -->
+                    <label for="seat1A">1A</label>
+                    <input type="radio" id="seat1A" name="seat" value="1A">
+                    
+                    <label for="seat1B">1B</label>
+                    <input type="radio" id="seat1B" name="seat" value="1B">
+                    
+                    <!-- Add more seat options here -->
+                </div>
+            </fieldset>
+
+            <!-- Baggage Information Section -->
+            <fieldset>
+                <legend>Baggage Information</legend>
+                <p>Baggage allowance details:</p>
+                <label for="checked-baggage">Checked Baggage:</label>
+                <select id="checked-baggage" name="checked_baggage">
+                    <option value="0">No checked baggage</option>
+                    <option value="1">1 piece (up to 23kg)</option>
+                    <option value="2">2 pieces (up to 23kg each)</option>
+                    <!-- Add more options based on airline policies -->
+                </select>
+                
+                <label for="carry-on">Carry-on:</label>
+                <select id="carry-on" name="carry_on">
+                    <option value="1">1 piece (up to 8kg)</option>
+                    <option value="2">2 pieces (up to 8kg each)</option>
+                    <!-- Add more options based on airline policies -->
+                </select>
+                
+                <p>Additional fees may apply for excess baggage.</p>
+            </fieldset>
+
+
+            <!-- Payment Section -->
+            <fieldset>
+                <legend>Payment</legend>
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card_number" required>
+
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="month" id="expiry-date" name="expiry_date" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+            </fieldset>
+
+            <!-- Additional Services Section -->
+            <!-- This section would include additional options like meals and special assistance -->
+
+            <!-- Terms and Conditions Section -->
+            <fieldset>
+                <legend>Terms and Conditions</legend>
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the terms and conditions</label>
+            </fieldset>
+
+            <!-- Confirmation Section -->
+            <fieldset>
+                <legend>Confirmation</legend>
+               <a href="home.html"> <button type="submit" class="submit-btn" >Book Flight</button></a>
+                >
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- Customer Support Section -->
+    <div class="customer-support">
+        <h2>Need Help?</h2>
+        <p>Contact our customer support at <a href="mailto:support@example.com">support@example.com</a></p>
+    </div>
+</body>
+</html>
